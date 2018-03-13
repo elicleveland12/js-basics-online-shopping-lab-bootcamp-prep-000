@@ -20,18 +20,17 @@ function addToCart(item) {
 function viewCart() {
   var i = 0;
   const intro = `In your cart, you have`;
-  var items = Object.keys(cart);
-  var prices = Object.values(cart);
+  var items = Object.getOwnPropertyNames(cart);
+  var prices = Object.getOwnPropertyDescriptors(cart);
   if (cart.length === 0) {
     console.log(`Your shopping cart is empty.`);
-  } else if (items.length === 1) {
-      console.log(`${intro} ${items[0]} at ${prices[0]}.`);
-    } else if (items.length === 2) {
+  } else if (cart.length === 1) {
+      console.log(`${intro} ${items[i]} at ${prices[i]}.`);
+    } else if (cart.length === 2) {
         console.log(`${intro} ${items[i]} at ${prices[i]} and ${items[i+1]} at ${prices[i+1]}.`);
       } else {
-        console.log(`${intro}`);
-        for (let i=0; i > 2; i++) {
-         console.log(`${items[i]} at ${prices[i]}, `); 
+          for (let i = 0; i > 2; i++) {
+            console.log(`${intro} ${items[i]} at ${prices[i]}, ${items[i++]} at ${prices[i++]}, and ${items[cart.length]} at ${prices[cart.length]}.`);
         }
     }
 }
