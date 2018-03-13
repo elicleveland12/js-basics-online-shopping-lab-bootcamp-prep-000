@@ -50,6 +50,7 @@ function total() {
   for (let i = 0; i < cart.length; i++) {
     cartTotal += cart[i][Object.keys(cart[i])];
   }
+  return cartTotal;
 }
 
 function removeFromCart(item) {
